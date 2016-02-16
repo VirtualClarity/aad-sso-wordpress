@@ -300,7 +300,7 @@ class AADSSO {
 		}
 
 		// Override the priority of the keys which get checked
-		$keys_in_order          = apply_filters( 'aad_sso_emails_from_graph_check_order', array( 'proxyAddresses', 'mail', 'otherMails', 'userPrincipalName' ) );
+		$keys_in_order          = apply_filters( 'aad_sso_emails_from_graph_check_order', array( 'mail', 'proxyAddresses', 'otherMails', 'userPrincipalName' ) );
 		$keys_with_array_values = apply_filters( 'aad_sso_emails_keys_with_array_values', array( 'proxyAddresses', 'otherMails' ) );
 
 		foreach ( $keys_in_order as $key ) {
