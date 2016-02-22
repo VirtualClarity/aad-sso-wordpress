@@ -396,9 +396,10 @@ class AADSSO {
 
 		$html = <<<EOF
 			<p class="aadsso-login-form-text">
-				<a href="%s">Sign in with your %s account</a><br />
-				<a class="dim" href="%s">Sign out</a>
-			</p>
+                                <a href="%s"><img src="https://secure.aadcdn.microsoftonline-p.com/dbd5a2dd-uymyxxfhpwrbckvwvlxle8radh6vkzaj7cwkqpqixg/appbranding/npdp3ivuhlrwvd1ynsq0x-mjc7zhvnj0i7k676ppafa/0/bannerlogo?ts=635538653042733860" alt="Office 365 logo" width="159" height="35"/><br/>
+                                Sign in with your %s account</a><br/>
+                                <a class="dim" href="%s">Sign out</a>
+                        </p>
 EOF;
 		$html = sprintf( $html, $login_url, htmlentities( $org_display_name ), $logout_url );
 		return apply_filters( 'aad_sso_login_link', $html, $login_url, $logout_url, $org_display_name );
