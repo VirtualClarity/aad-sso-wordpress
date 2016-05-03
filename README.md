@@ -16,6 +16,14 @@ In the typical flow:
 4. If one is found, the user is authenticated in WordPress as that user.
 5. (Optional) Membership to certain groups in Azure AD can be mapped to roles in WordPress.
 
+## Differences from upstream
+
+The following functional changes have been made to this module to better suit our needs. You may find them useful to and thus choose this repo over its parent.
+
+1. The login page has the Office 365 logo so that it is more obvious to users what they are doing
+2. New users are registered using their 'mail' attribute instead of their 'proxyAddresses' attribute, so that they get @yourcompany.com instead of @yourcompany.onmicrosoft.com in their profile
+3. Since we use it in conjunction with the Force Login plugin to create an internet-accessible but private site, the user is always redirected to the site's home page after logging in, rather than back to the page they came from. This avoids a weird condition where after logging in the user is taken back to the login page. If you aren't using Force Login this brute force approach might be too harsh for you. If so play with redirect_after_login() in aad_sso_wordpress.php
+
 ## Getting Started
 
 The following instructions will get you started. In this case, we will be configuring the plugin to use the user roles configured in WordPress.
