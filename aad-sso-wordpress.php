@@ -126,9 +126,8 @@ class AADSSO {
 			}
 			else
 			{
-				$redirect_to = esc_url_raw($_SESSION['redirect_to']);
+				$redirect_to = html_entity_decode($_SESSION['redirect_to']);
 			}
-			error_log("Redirect to ".$_SESSION['redirect_to']);
 			// Remove chances of residual redirects when logging in.
 			unset( $_SESSION['redirect_to'] );
 		}
