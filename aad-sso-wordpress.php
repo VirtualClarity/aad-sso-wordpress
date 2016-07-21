@@ -120,7 +120,15 @@ class AADSSO {
 
 	public function redirect_after_login( $redirect_to, $requested_redirect_to, $user ) {
 		if ( is_a( $user, 'WP_User' ) && isset( $_SESSION['redirect_to'] ) ) {
-			$redirect_to = esc_url_raw( site_url() );
+			if($_SESSION['redirect_to'] === '/wp-login.php?loggedout=true')
+			{
+				$redirect_to = esc_url_raw(site_url());
+			}
+			else
+			{
+				$redirect_to = esc_url_raw($_SESSION['redirect_to']);
+			}
+			error_log("Redirect to ".$_SESSION['redirect_to']);
 			// Remove chances of residual redirects when logging in.
 			unset( $_SESSION['redirect_to'] );
 		}
